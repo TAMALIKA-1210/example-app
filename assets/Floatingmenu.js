@@ -1,10 +1,10 @@
 import react from "react";
-import { TouchableOpacity,Image,View,Animated } from "react-native";
+import { TouchableOpacity,Image,View,Animated, Button } from "react-native";
 import { useRef,useState } from "react";
 
 
 
-const Floatingmenu=() =>{
+const Floatingmenu=({navigation}) =>{
     const animation = useRef(new Animated.Value(0)).current;
     const [isButtonClicked, setIsButtonClicked]= useState(false);
 
@@ -101,9 +101,9 @@ const style6={
             justifyContent:'center',
             alignitems:'center'
         }}>
-
-        <TouchableOpacity style={{bottom:0,marginBottom:-30}}>
+        <TouchableOpacity style={{bottom:0,marginBottom:-30}} >
         <Animated.View style={[{width:50,height:50,borderRadius:30,backgroundColor:"#BDFA3C",justifyContent:'center',alignitems:'center',padding:10},style6,]}>
+<Button onPress={()=> navigation.navigate("Friends")} title="Hello"></Button>
         <Image style={{width:30,height:30}} source={require('./images/settings.png')}></Image>
         </Animated.View>
         </TouchableOpacity>

@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+import React from 'react';
+import { View, Text, Button } from 'react-native';
 import {styles} from './assets/Style';
 import {Goodbye} from './assets/Components/Goodbye';
 //import { Link } from 'expo-router';
@@ -11,20 +12,28 @@ import { Floatingmenu } from './assets/Floatingmenu';
 //const Stack = createStackNavigator();
 //import  Ionicons  from '@expo/vector-icons/Ionicons';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+import { Link, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { TouchableOpacity } from 'react-native-web';
 //import react from 'react';
 
 const Stack = createStackNavigator();
 
-function Helloscreen(){
+function Helloscreen({navigation}){
   return(
+  <>
         <Hellopage/>
+        <Floatingmenu navigation = {navigation}/>
+  </>
   )
 }
-function Goodbyescreen(){
+function Goodbyescreen({navigation}){
   return(
-        <Goodbye/>
+    <>
+    <Goodbye/>
+    <Button title='hello' onPress={()=>navigation.navigate("Friends")}></Button>
+
+    </>
   )
 }
 //const Tab = createBottomTabNavigator()
