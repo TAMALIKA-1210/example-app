@@ -109,11 +109,15 @@ const style6={
         </TouchableOpacity>
          <TouchableOpacity style={{bottom:0,marginBottom:-30}}>
         <Animated.View style={[{width:50,height:50,borderRadius:30,backgroundColor:"#BDFA3C",justifyContent:'center',alignitems:'center',padding:15},style5,]}>
+        <Button onPress={()=> navigation.navigate("Home")} title="Hello"></Button>
+
         <Image style={{width:20,height:25}} source={require('./images/account.png')}></Image>
         </Animated.View>
     </TouchableOpacity>
         <TouchableOpacity style={{bottom:0,marginBottom:-30}}>
         <Animated.View style={[{width:50,height:50,borderRadius:30,backgroundColor:"#BDFA3C",justifyContent:'center',alignitems:'center',padding:6},style4,]}>
+        <Button onPress={()=> navigation.navigate("Camera")} title="Camera"></Button>
+
         <Image style={{width:40,height:40,top:3}} source={require('./images/reel.png')}></Image>
         </Animated.View>
     </TouchableOpacity>

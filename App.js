@@ -15,6 +15,7 @@ import 'react-native-gesture-handler';
 import { Link, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-web';
+import CameraPage from './assets/Components/CameraPage';
 //import react from 'react';
 
 const Stack = createStackNavigator();
@@ -22,20 +23,35 @@ const Stack = createStackNavigator();
 function Helloscreen({navigation}){
   return(
   <>
+      <View style={styles.container}>
         <Hellopage/>
         <Floatingmenu navigation = {navigation}/>
+        </View>
   </>
   )
 }
 function Goodbyescreen({navigation}){
   return(
     <>
+    <View style={styles.container}>
     <Goodbye/>
-    <Button title='hello' onPress={()=>navigation.navigate("Friends")}></Button>
-
+    <Floatingmenu navigation = {navigation}/>
+    </View>
     </>
   )
 }
+
+function Camerascreen({navigation}){
+  return(
+    <>
+    <View style={styles.container}>
+    <CameraPage/>
+    <Floatingmenu navigation = {navigation}/>
+    </View>
+    </>
+  )
+}
+
 //const Tab = createBottomTabNavigator()
 
 class  App extends React.Component {
@@ -46,12 +62,20 @@ class  App extends React.Component {
           <Stack.Screen
             name="Home"
             component={Helloscreen}
+            options={{headerShown:false}}
           />
           <Stack.Screen
             name="Friends"
             component={Goodbyescreen}
+            options={{headerShown:false}}
+          />
+          <Stack.Screen
+            name="Camera"
+            component={Camerascreen}
+            options={{headerShown:false}}
           />
         </Stack.Navigator>
+        
       </NavigationContainer>
   );
 }}
